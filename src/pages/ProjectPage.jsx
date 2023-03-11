@@ -67,9 +67,9 @@ function ProjectPage() {
           })}
         </ul>
         <p>
-          Total raised: ${projectData.total} of ${projectData.goal} goal
+          Total raised: ${projectData.total > 0 ? projectData.total : "0"} of $
+          {projectData.goal} goal{" "}
         </p>
-
         <div class="pledge-form">
           <h2>Donate now:</h2>
           <PledgeForm project={projectData} />{" "}

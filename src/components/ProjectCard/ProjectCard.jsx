@@ -10,7 +10,8 @@ function ProjectCard(props) {
         <h2>{projectData.title}</h2>
       </Link>
       <p>
-        Total raised: ${projectData.total} of ${projectData.goal} goal
+        Total raised: ${projectData.total > 0 ? projectData.total : "0"} of $
+        {projectData.goal} goal{" "}
       </p>
     </div>
   );

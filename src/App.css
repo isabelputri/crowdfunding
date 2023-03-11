@@ -71,9 +71,9 @@ button:hover {
 /* ------------------------------------------ HOME PAGE */
 
 #project-list {
-  display: grid;
-  grid-template-columns: 40% 40%;
-  column-gap: 5%;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 2%;
 }
 
 #logo {

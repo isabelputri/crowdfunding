@@ -17,6 +17,19 @@ function HomePage() {
       });
   }, []);
 
+  // sorting the created date in order
+  function compare(a, b) {
+    if (a.date_created < b.date_created) {
+      return 1;
+    }
+    if (a.date_created > b.date_created) {
+      return -1;
+    }
+    return 0;
+  }
+  // organizes project list in reverse order so it shows the latest project first
+  const latestProject = projectList.sort(compare);
+
   return (
     <div>
       <section className="text-section">
