@@ -1,10 +1,57 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "./Nav.css";
 
-function Nav() {
+function Nav(props) {
+  const { loggedIn, setLoggedIn } = props;
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    window.localStorage.removeItem("token");
+    setLoggedIn(false);
+    navigate(`/`);
+  };
+
   return (
-    <nav className="nav">
-      <Link to="/">Home</Link>
-      <Link to="/project">Project</Link>
+    <nav>
+      <div className="nav-logo">
+        {" "}
+        <a href="/">
+          <img
+            src=".\public\images\kitty-cat-island-logo.png"
+            className="logo-img"
+          />
+        </a>
+      </div>
+      <div className="nav-links">
+        <Link className="nav-btn" to="/">
+          Home
+        </Link>
+        <Link className="nav-btn" to="/project">
+          Projects
+        </Link>
+        {loggedIn && (
+          <Link className="nav-btn" to="/create-project">
+            Create Project
+          </Link>
+        )}
+
+        {!loggedIn && (
+          <Link className="nav-btn" to="/sign-up">
+            Sign Up
+          </Link>
+        )}
+        {!loggedIn && (
+          <Link className="nav-btn" to="/login">
+            Login
+          </Link>
+        )}
+        {loggedIn && (
+          <button className="logout-btn" onClick={handleClick}>
+            Logout
+          </button>
+        )}
+      </div>
     </nav>
   );
 }

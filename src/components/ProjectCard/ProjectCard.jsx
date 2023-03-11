@@ -11,6 +11,9 @@ function ProjectCard(props) {
       <Link to={`/project/${projectData.id}`}>
         <img src={projectData.image} />
         <h3>{projectData.title}</h3>
+        <p>
+          Total raised: ${projectData.total} of ${projectData.goal} goal
+        </p>
       </Link>
     </div>
   );

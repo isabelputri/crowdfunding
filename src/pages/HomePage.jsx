@@ -28,11 +28,8 @@ function HomePage() {
         Please donate what you can, every little bit helps. We need funds to
         provide food, shelter, and medical care.
       </p>
-      <p>
-        Thank you for your kindness and generosity. Together, we can make Kitty
-        Cat Island a safe and comfortable place for all of us cats. Purr-lease
-        help! Meow
-      </p>
+      <p>Purr-lease help! Meow!</p>
+      <h3> Latest fundraisers </h3>
       <div id="project-list">
         {projectList.map((project, key) => {
           return <ProjectCard key={key} projectData={project} />;
