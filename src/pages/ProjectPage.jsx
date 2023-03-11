@@ -61,12 +61,15 @@ function ProjectPage() {
         {projectData.pledges.map((pledgeData, key) => {
           return (
             <li key={key}>
-              <p>{pledgeData.supporter} donated ${pledgeData.amount}</p> 
+              <p>
+                {pledgeData.supporter} donated ${pledgeData.amount}
+              </p>
               <p>Comment: "{pledgeData.comment}"</p>
             </li>
           );
         })}
       </ul>
+      <PledgeForm project={projectData} />{" "}
     </div>
   );
 }
