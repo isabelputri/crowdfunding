@@ -43,25 +43,38 @@ function ProjectPage() {
   );
 
   return (
-    <div>
-      <h2>{projectData.title}</h2>
-      <p>{projectData.description} </p>
-      <p>{`Data created: ${date}`}</p>
-      {/* <h3>{`Status: ${projectData.is_open}`}</h3> */}
-      <h3>Pledges:</h3>
-      <ul>
-        {projectData.pledges.map((pledgeData, key) => {
-          return (
-            <li key={key}>
-              <p>
-                {owner.username} donated ${pledgeData.amount}
-              </p>
-              <p>Comment: "{pledgeData.comment}"</p>
-            </li>
-          );
-        })}
-      </ul>
-      <PledgeForm project={projectData} />{" "}
+    <div className="project-page">
+      <div className="project-box">
+        <img id="project-image" src={projectData.image} />
+        <h1>{projectData.title}</h1>
+        <p>
+          Published by {owner.username} on {date}
+        </p>
+        <h3>{projectData.description} </h3>
+      </div>
+      <div className="pledge-box">
+        <h2>Pledges:</h2>
+        <ul className="pledge-list">
+          {projectData.pledges.map((pledgeData, key) => {
+            return (
+              <li className="pledge-individual" key={key}>
+                <p>
+                  {owner.username} donated ${pledgeData.amount}
+                </p>
+                <p>Comment: "{pledgeData.comment}"</p>
+              </li>
+            );
+          })}
+        </ul>
+        <p>
+          Total raised: ${projectData.total} of ${projectData.goal} goal
+        </p>
+
+        <div class="pledge-form">
+          <h2>Donate now:</h2>
+          <PledgeForm project={projectData} />{" "}
+        </div>
+      </div>
     </div>
   );
 }

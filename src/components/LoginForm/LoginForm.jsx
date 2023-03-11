@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
 
 function LoginForm() {
+  const [, setLoggedIn] = useOutletContext();
+
   //State
   const [credentials, setCredentials] = useState({
     username: "",
@@ -34,32 +36,39 @@ function LoginForm() {
     return response.json();
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    if (credentials.username && credentials.password) {
-      const { token } = await postData();
-      window.localStorage.setItem("token", token);
-      navigate("/");
-    }
-  };
-  return (
-    <form onSubmit={handleSubmit}>
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+      if (credentials.username && credentials.password) {
+        const { token } = await postData();
+        window.localStorage.setItem("token", token);
+        setLoggedIn(true);
+        navigate("/");
+      }
+    };
+    
+    return (
+    <form className="form" onSubmit={handleSubmit}>
+      <h2>Log in</h2>
       <div>
-        <label htmlFor="username">Username:</label>
+        <label className="label" htmlFor="username">
+          Username:
+        </label>
         <input
           type="text"
           id="username"
-          onChange={handleChange}
           placeholder="Enter username"
+          onChange={handleChange}
         />
       </div>
       <div>
-        <label htmlFor="password">Password:</label>
+        <label className="label" htmlFor="password">
+          Password:
+        </label>
         <input
           type="password"
           id="password"
-          onChange={handleChange}
           placeholder="Password"
+          onChange={handleChange}
         />
       </div>
       <button type="submit">Login</button>

@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import "./Nav.css";
 
 function Nav(props) {
   const { loggedIn, setLoggedIn } = props;
@@ -17,7 +16,10 @@ function Nav(props) {
       <div className="nav-logo">
         {" "}
         <a href="/">
-          <img src="public\images\KCI-Transparent.png" className="logo-img" />
+          <img
+            src="https://i.postimg.cc/rmmpQTwm/KCI-Transparent.png"
+            className="logo-img"
+          />
         </a>
       </div>
       <div className="nav-links">
@@ -30,17 +32,17 @@ function Nav(props) {
 
         {!loggedIn && (
           <Link className="nav-btn" to="/sign-up">
-            Sign Up
+            Sign up
           </Link>
         )}
         {!loggedIn && (
           <Link className="nav-btn" to="/login">
-            Login
+            Log in
           </Link>
         )}
         {loggedIn && (
           <button className="logout-btn" onClick={handleClick}>
-            Logout
+            Log out
           </button>
         )}
       </div>

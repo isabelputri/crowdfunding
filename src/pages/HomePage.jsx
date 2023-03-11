@@ -20,6 +20,7 @@ function HomePage() {
   return (
     <div>
       <section className="text-section">
+        <img id="logo" src="https://i.postimg.cc/SsDMxVJX/KCI-Logo.png" />
         <h1> 😿 Meow! Help! Emergency on Kitty Cat Island! </h1>
         <p>
           Tsunami has struck and many of our homes have been destroyed. We need

@@ -60,10 +60,8 @@ function PledgeForm(props) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        {/* <h3>Make a Donation:</h3> */}
         <div>
-          {/* <label htmlFor="amount">Amount:</label> */}
-          <h3>Donate Now:</h3>
+          <label htmlFor="amount">Amount:</label>
           <input
             type="number"
             min="1"
@@ -73,7 +71,7 @@ function PledgeForm(props) {
           />
         </div>
         <div>
-          {/* <label htmlFor="comment">Comment:</label> */}
+          <label htmlFor="comment">Comment:</label>
           <input
             type="text"
             id="comment"
@@ -103,7 +101,7 @@ function PledgeForm(props) {
           />
         </div> */}
         <div>
-          <button className="project-button" type="submit">
+          <button type="submit">
             Pledge
           </button>
         </div>
