@@ -1,12 +1,10 @@
-import { useState } from "react";
-import { Link, useNavigate, useOutletContext } from "react-router-dom";
-
-import "./LoginForm.css";
+import React, { useState } from "react";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
 function LoginForm() {
-  const { setLoggedIn } = useOutletContext();
+  const [, setLoggedIn] = useOutletContext();
 
-  //State
+  // State
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
@@ -15,19 +13,18 @@ function LoginForm() {
   // Hooks
   const navigate = useNavigate();
 
-  //Actions
+  // Actions
   const handleChange = (event) => {
-    const { id, value } = event.target;
+    // plugging to the input - event is passed into it
+    const { id, value } = event.target; // get target of event which is the input
 
-    setCredentials((prevCredentials) => ({
-      ...prevCredentials,
-      [id]: value,
-    }));
-  };
+    setCredentials((prevCredentials) => ({ ...prevCredentials, [id]: value }));
+  }; // this is an explicit return.
 
   const postData = async () => {
     const response = await fetch(
       `${import.meta.env.VITE_API_URL}api-token-auth/`,
+      // `${import.meta.env.VITE_API_URL}users/<int:pk>/`,
       {
         method: "post",
         headers: {
@@ -38,7 +35,6 @@ function LoginForm() {
     );
     return response.json();
   };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (credentials.username && credentials.password) {
@@ -47,51 +43,38 @@ function LoginForm() {
         window.localStorage.setItem("token", token);
         setLoggedIn(true);
         navigate("/");
-      } else setLoggedIn(false);
-
-      //   fetch(`${import.meta.env.VITE_API_URL}api-token-auth/`, {
-      //     method: "post",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify(credentials),
-      //   }).then((response) => {
-      //     console.log(response.json());
-      //   });
+      } else {
+        setLoggedIn(false);
+      }
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="login-form-wrapper">
-      <h2>Login</h2>
-      <div className="form-item">
+    <form onSubmit={handleSubmit}>
+      <div>
+        <h1>Log In:</h1>
+        {/* <label htmlFor="username">Username:</label> */}
         <input
           type="text"
           id="username"
-          name="username"
-          required="required"
+          placeholder="Enter username"
           onChange={handleChange}
         />
-        <label htmlFor="username">
-          <span>Username</span>
-        </label>
       </div>
-      <div className="form-item">
+      <div>
+        {/* <label htmlFor="password">Password:</label> */}
         <input
           type="password"
           id="password"
-          name="password"
+          placeholder="Password"
           onChange={handleChange}
-          required="required"
         />
-        <label htmlFor="password">
-          <span>Password</span>
-        </label>
       </div>
-      <button type="submit">Login</button>
-      <p>
-        Don't have an account? Register <Link to="/register">here</Link>.
-      </p>
+      <div>
+        <button className="project-button" type="submit">
+          Login
+        </button>
+      </div>
     </form>
   );
 }

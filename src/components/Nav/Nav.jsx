@@ -18,7 +18,7 @@ function Nav(props) {
         {" "}
         <a href="/">
           <img
-            src=".\public\images\kitty-cat-island-logo.png"
+            src="\logo.png"
             className="logo-img"
           />
         </a>
