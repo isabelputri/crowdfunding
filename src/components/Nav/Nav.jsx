@@ -30,11 +30,6 @@ function Nav(props) {
         <Link className="nav-btn" to="/project">
           Projects
         </Link>
-        {loggedIn && (
-          <Link className="nav-btn" to="/create-project">
-            Create Project
-          </Link>
-        )}
 
         {!loggedIn && (
           <Link className="nav-btn" to="/sign-up">

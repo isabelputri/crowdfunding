@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useParams, useOutletContext } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function RegistrationForm() {
   const authToken = window.localStorage.getItem("token");
@@ -76,6 +76,9 @@ function RegistrationForm() {
           </button>
         </div>
       </form>
+      <p>
+        Already have an account? Login <Link to="/login">here</Link>.
+      </p>
     </div>
   );
 }
