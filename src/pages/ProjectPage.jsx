@@ -5,13 +5,11 @@ import PledgeForm from "../components/PledgeForm/PledgeForm";
 function ProjectPage() {
   //State
   const [projectData, setProjectData] = useState({ pledges: [] });
+  const [owner, setOwner] = useState([]);
 
-  //Hooks
+  //Hook
   const { id } = useParams();
-  
-  const token = window.localStorage.getItem("token");
-  
-  //Effects
+
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}projects/${id}`)
       .then((results) => {
@@ -19,24 +17,18 @@ function ProjectPage() {
       })
       .then((data) => {
         setProjectData(data);
-        setCommentData(data);
+
+        //convert userid to username
+        const userId = data.owner;
+        return fetch(`${import.meta.env.VITE_API_URL}users/${userId}`);
+      })
+      .then((results) => {
+        return results.json();
+      })
+      .then((data) => {
+        return setOwner(data);
       });
   }, []);
-
-  // useEffect(() => {
-  //   const fetchProject = async () => {
-  //     try {
-  //       const res = await fetch(
-  //         `${import.meta.env.VITE_API_URL}projects/${id}`
-  //       );
-  //       const data = await res.json();
-  //       setProject(data);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   fetchProject();
-  // }, []);
 
   const options = {
     weekday: "long",
@@ -62,7 +54,7 @@ function ProjectPage() {
           return (
             <li key={key}>
               <p>
-                {pledgeData.supporter} donated ${pledgeData.amount}
+                {owner.username} donated ${pledgeData.amount}
               </p>
               <p>Comment: "{pledgeData.comment}"</p>
             </li>

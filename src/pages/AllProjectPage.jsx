@@ -32,16 +32,7 @@ function AllProjectsPage() {
 
   return (
     <div>
-      <section className="text-section">
-        <h2>Dear Hoomans,</h2>
-        <p>
-          Many of us have ended up in shelters or on the streets, struggling to
-          survive. That's why we are asking you to consider making a donation
-          below.
-        </p>
-        <p>Your gift could make all the difference in the life of a cat.</p>
-      </section>
-      <h3 className="project-container">Discover all fundraisers</h3>
+      <h1 className="project-container">Discover all fundraisers</h1>
       <div className="project-container">
         <div id="project-list">
           {latestProject.map((project, key) => {

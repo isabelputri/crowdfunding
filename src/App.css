@@ -1,7 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&family=Tilt+Neon&display=swap");
 
 body {
   font-family: "Mulish", sans-serif;
+  font-family: "Tilt Neon", cursive;
   font-weight: 400;
   font-style: normal;
 }
+
+.text-section {
+  text-align: center;
+  height: auto;
+  margin: auto;
+  padding: 30px;
+}
+
+/* ------------ HOME PAGE */
+
+#project-list {
+  display: grid;
+  grid-template-columns: 40% 40%;
+  column-gap: 10%;
+}
+
+/* ---------- PROJECT PAGE */
+

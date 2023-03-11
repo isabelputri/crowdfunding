@@ -17,10 +17,7 @@ function Nav(props) {
       <div className="nav-logo">
         {" "}
         <a href="/">
-          <img
-            src="\logo.png"
-            className="logo-img"
-          />
+          <img src="public\images\KCI-Transparent.png" className="logo-img" />
         </a>
       </div>
       <div className="nav-links">

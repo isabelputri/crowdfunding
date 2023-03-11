@@ -5,12 +5,9 @@ function PledgeForm(props) {
   const { project } = props;
 
   const [pledges, setPledges] = useState({
-    // from JSON Raw Body in Deployed (default values)
-    // this is what you return at the bottom - your list might look different to mine. If so, don't worry!
     amount: null,
     comment: "",
     anonymous: false,
-    // project: null,
   });
 
   // enables redirect
@@ -30,7 +27,7 @@ function PledgeForm(props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // get auth token from local storage
+    // get auth token from local storage, but don't use this method in real life deployment, never store auth token on local storage due to security
     const authToken = window.localStorage.getItem("token");
 
     if (authToken) {

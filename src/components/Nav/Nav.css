@@ -1,12 +1,11 @@
+
 nav {
-  background-color: white;
+  background-color: #3e6765;
   display: flex;
   justify-content: space-between;
-  /* border-bottom: solid 1px #46cdce; */
   align-items: center;
-  /* background-color: antiquewhite; */
   width: 98%;
-  /* height: 180px; */
+  height: 60px;
   padding-left: 20px;
   padding-right: 20px;
   margin: auto;
@@ -19,9 +18,9 @@ nav {
   margin: auto;
   display: flex;
   align-items: center;
-  width: 140px;
+  width: 120px;
   text-decoration: none;
-  color: black;
+  color: white;
   font-weight: 700;
 }
 
@@ -31,7 +30,6 @@ nav {
 }
 
 .nav-btn:hover {
-  color: #3e6765;
   text-decoration: underline;
 }
 
@@ -52,36 +50,5 @@ nav {
 }
 
 .logout-btn:hover {
-  color: #3e6765;
-}
-
-/*------ MEDIA QUERIES ------*/
-@media screen and (max-width: 900px) {
-  .nav-btn,
-  .logout-btn {
-    font-size: 13px;
-  }
-
-  .logo-img {
-    height: auto;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  nav {
-    width: auto;
-    padding: 0;
-  }
-  .logo-img {
-    /* width: 120px; */
-    height: auto;
-  }
-
-  .nav-btn,
-  .logout-btn {
-    font-size: 8px;
-    padding: 0;
-    margin: 0;
-    width: 10px;
-  }
+  text-decoration: underline;
 }
